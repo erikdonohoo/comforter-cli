@@ -1,0 +1,27 @@
+{
+  "name": "comforter-cli",
+  "version": "0.0.0",
+  "description": "cli tool for communicating with comforter instance",
+  "scripts": {
+    "test": "npm test"
+  },
+  "bin": {
+    "comforter-cli": "index.js"
+  },
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.goreact.com:qa/comforter-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "comforter",
+    "qa",
+    "coverage"
+  ],
+  "author": "Erik Donohoo",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
