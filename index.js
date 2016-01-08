@@ -10,7 +10,7 @@ var errors = {
     missingCoverage: 'Missing path to lcov file or generated coverage percentange',
     badRequest: 'Coverage data was sent incorrectly or not accepted by Comforter',
     lcovFile: 'LCOV file could not be found',
-    missingRequiredParams: 'Missing one or many of required params (commit, branch project)'
+    missingRequiredParams: 'Missing one or many of required params (commit, branch project, host)'
 };
 
 // begin
@@ -49,7 +49,7 @@ function sendRequest () {
         }
     }
 
-    restler.post('http://localhost:3000/api/apps/' + argv.project + '/coverage', {
+    restler.post(argv.host + '/api/apps/' + argv.project + '/coverage', {
         multipart: true,
         data: data
     }).on('success', function (data) {
@@ -74,8 +74,13 @@ function handleParams (params) {
         console.error(chalk.red('ERROR') + ' ' + errors.missingCoverage);
         fail();
     }
-    if (!params.project || !params.branch || !params.commit) {
+    if (!params.project || !params.branch || !params.commit || !params.host) {
         console.error(chalk.red('ERROR') + ' ' + errors.missingRequiredParams);
         fail();
+    }
+
+    // add trailing slash to host
+    if (params.host.charAt(params.host.length - 1) !== '/') {
+        params.host += '/';
     }
 }
