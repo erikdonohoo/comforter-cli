@@ -3,8 +3,7 @@
   "version": "0.1.1",
   "description": "cli tool for communicating with comforter instance",
   "scripts": {
-    "test": "lab -v",
-    "coverage": "lab -cr lcov -o lcov.info"
+    "test": "lab -v"
   },
   "bin": {
     "comforter-cli": "lib/index.js"
