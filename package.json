@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "cli tool for communicating with comforter instance",
   "scripts": {
-    "test": "lab -v"
+    "test": "lab -v -m 5000"
   },
   "bin": {
     "comforter-cli": "lib/index.js"
