@@ -1,0 +1,10 @@
+before_script:
+    - . /opt/.nvm/nvm.sh
+    - nvm use stable
+    - npm install
+cache:
+    untracked: true
+unit-test:
+    stage: test
+    script:
+        - npm test
