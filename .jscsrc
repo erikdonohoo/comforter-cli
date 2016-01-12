@@ -100,7 +100,7 @@
 	"requireCamelCaseOrUpperCaseIdentifiers": false,
 	"disallowMultipleLineStrings": true,
 	"disallowMultipleLineBreaks": true,
-	"disallowMixedSpacesAndTabs": "smart",
+	"disallowMixedSpacesAndTabs": true,
 	"disallowTrailingWhitespace": true,
 	"disallowTrailingComma": true,
 	"disallowKeywordsOnNewLine": ["else"],

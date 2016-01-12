@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "cli tool for communicating with comforter instance",
   "scripts": {
-    "test": "lab -v -m 5000"
+    "test": "jshint --reporter=node_modules/jshint-stylish lib/*.js test/ && jscs lib/ test/ && lab -v -m 5000"
   },
   "bin": {
     "comforter-cli": "lib/index.js"
@@ -30,6 +30,9 @@
     "code": "^2.1.0",
     "fs-extra": "^0.26.4",
     "js-combinatorics": "^0.5.0",
+    "jscs": "^2.8.0",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
     "lab": "^8.0.1"
   }
 }
