@@ -24,7 +24,9 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "minimist": "^1.2.0",
-    "restler": "^3.4.0"
+    "q": "^1.4.1",
+    "restler": "^3.4.0",
+    "zip-dir": "^1.0.0"
   },
   "devDependencies": {
     "code": "^2.1.0",
@@ -33,7 +35,6 @@
     "jscs": "^2.8.0",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
-    "lab": "^8.0.1",
-    "nock": "^5.2.1"
+    "lab": "^8.0.1"
   }
 }
