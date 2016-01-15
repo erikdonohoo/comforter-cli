@@ -21,7 +21,8 @@ lab.experiment('setup: lcov file or coverage percent', function () {
 	});
 
 	lab.test('fails when missing lcov file ref or coverage directly', function (done) {
-		child.exec('node ' + __dirname + '/../lib/index.js --branch branch --project 1 --host a --commit sha > ' + outfile, function (err) {
+		child.exec('node ' + __dirname + '/../lib/index.js --branch branch --project 1 --host a --commit sha --apiKey key > ' +
+		outfile, function (err) {
 			code.expect(err).to.exist();
 			code.expect(err.toString()).to.contain('Missing path to lcov file or generated coverage percentange');
 			done(); // dont pass err cuz we are expecting err
@@ -29,7 +30,7 @@ lab.experiment('setup: lcov file or coverage percent', function () {
 	});
 
 	lab.test('fails if lcov file path doesnt exist', function (done) {
-		child.exec('node ' + __dirname + '/../lib/index.js --branch branch --project 1 --host a --commit sha --path ' +
+		child.exec('node ' + __dirname + '/../lib/index.js --branch branch --apiKey key --project 1 --host a --commit sha --path ' +
 			__dirname + '/../test/lcovv.info > ' + outfile, function (err) {
 			code.expect(err).to.exist();
 			code.expect(err.toString()).to.contain('LCOV file could not be found');

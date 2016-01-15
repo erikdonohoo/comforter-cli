@@ -21,35 +21,33 @@ lab.experiment('setup: params', function () {
 		done();
 	});
 
-	lab.test('fails when missing required params', function (done) {
+	var params = {
+		host: 'http://localhost/',
+		branch: 'my-branch',
+		commit: 'sha',
+		project: 1,
+		apiKey: 'key'
+	};
 
-		var params = {
-			host: 'http://localhost/',
-			branch: 'my-branch',
-			commit: 'sha',
-			project: 1
-		};
+	var keys = Object.keys(params);
 
-		var keys = Object.keys(params);
+	var permutations = Combinatorics.permutation(keys).toArray();
 
-		var permutations = Combinatorics.permutation(keys).toArray();
+	permutations.forEach(function (permutation, index) {
 
-		permutations.forEach(function (permutation, index) {
+		var string = '';
+		permutation.forEach(function (param, index) {
+			if (index === permutation.length - 1) {
+				return; // only use 3
+			}
+			string += '--' + param + ' ' + params[param] + ' ';
+		});
 
-			var string = '';
-			permutation.forEach(function (param, index) {
-				if (index === permutation.length - 1) {
-					return; // only use 3
-				}
-				string += '--' + param + ' ' + params[param] + ' ';
-			});
-
+		lab.test('fails when missing required params combo ' + index, function (done) {
 			child.exec('node ' + __dirname + '/../lib/index.js --coverage 98.8 ' + string + ' > ' + outfile, function (err) {
 				code.expect(err).to.exist();
-				code.expect(err.toString()).to.contain('Missing one or many of required params (commit, branch, project, host)');
-				if (index === permutations.length - 1) {
-					done(); // dont pass err cuz we are expecting err
-				}
+				code.expect(err.toString()).to.contain('Missing one or many of required params (commit, branch, project, host, apiKey)');
+				done();
 			});
 		});
 	});
