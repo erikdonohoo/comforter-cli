@@ -27,6 +27,7 @@
     "mv": "^2.1.1",
     "q": "^1.4.1",
     "restler": "^3.4.0",
+    "rimraf": "^2.5.0",
     "tar.gz": "^1.0.2"
   },
   "devDependencies": {
