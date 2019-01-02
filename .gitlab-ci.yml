@@ -1,5 +1,5 @@
 before_script:
-    - . /opt/.nvm/nvm.sh
+    - source /usr/local/nvm/nvm.sh
     - nvm use stable
     - npm install
 cache:
