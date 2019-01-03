@@ -33,7 +33,7 @@ lab.experiment('setup: lcov file or coverage percent', function () {
 		child.exec('node ' + __dirname + '/../lib/index.js --branch branch --apiKey key --project 1 --host a --commit sha --path ' +
 			__dirname + '/../test/lcovv.info --name coolProject > ' + outfile, function (err) {
 			code.expect(err).to.exist();
-			code.expect(err.toString()).to.contain('LCOV file could not be found');
+			code.expect(err.toString()).to.contain('ENOENT');
 			done(); // dont pass err cuz we are expecting err
 		});
 	});
