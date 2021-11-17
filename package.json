@@ -1,12 +1,12 @@
 {
   "name": "comforter-cli",
-  "version": "0.4.8",
+  "version": "1.0.0",
   "description": "cli tool for communicating with comforter instance",
   "scripts": {
-    "test": "jshint --reporter=node_modules/jshint-stylish lib/*.js test/ && jscs lib/ test/ && lab -v --leaks"
+    "test": ""
   },
   "bin": {
-    "comforter-cli": "lib/index.js"
+    "comforter-cli": "index.js"
   },
   "preferGlobal": true,
   "repository": {
@@ -22,21 +22,11 @@
   "author": "Erik Donohoo",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^1.1.1",
-    "minimist": "^1.2.0",
-    "mv": "^2.1.1",
-    "q": "^1.4.1",
-    "request": "^2.88.0",
-    "rimraf": "^2.5.0",
-    "tar.gz": "^1.0.2"
+    "form-data": "^4.0.0",
+    "jszip": "^3.7.1",
+    "node-fetch": "2",
+    "yargs": "^17.2.1",
+    "zip-dir": "^2.0.0"
   },
-  "devDependencies": {
-    "code": "^2.1.0",
-    "fs-extra": "^0.26.4",
-    "js-combinatorics": "^0.5.0",
-    "jscs": "^2.8.0",
-    "jshint": "^2.8.0",
-    "jshint-stylish": "^2.1.0",
-    "lab": "^8.0.1"
-  }
+  "devDependencies": {}
 }
